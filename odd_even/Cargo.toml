@@ -1,5 +1,5 @@
 [package]
-name = "oddEven"
+name = "odd_even"
 version = "0.1.0"
 authors = ["yasuoka ryosuke <yasuoka0830@gmail.com>"]
 
