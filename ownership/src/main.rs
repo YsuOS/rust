@@ -58,6 +58,8 @@ fn main() {
     let r2 = &mut s; 
     println!("r2: {}", r2);
 
+    let reference_to_nothing = no_dangle();
+    println!("{}", reference_to_nothing);
 }
 
 fn takes_ownership(some_string: String) {
@@ -93,4 +95,16 @@ fn calculate_length1(s: &String) -> usize {
 
 fn change1(some_string: &mut String) {
     some_string.push_str(", world");
+}
+
+//fn dangle() -> &String {
+//    let s = String::from("hello");
+//
+//    &s
+//}
+
+fn no_dangle() -> String {
+    let s = String::from("hello");
+
+    s
 }
