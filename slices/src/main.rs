@@ -1,13 +1,16 @@
 fn main() {
-    let mut s = String::from("hello world");
+    let s = String::from("hello world");
 
     let word = first_word(&s);
 
     println!("{}", word);
-    s.clear();
+    //s.clear(); // Error! if we have an immutable reference to something, we cannnot also take a
+    //mutable reference.
+    let my_string_literal = "hello world";
+    println!("{}", first_word(my_string_literal));
 }
 
-fn first_word(s: &String) -> &str {
+fn first_word(s: &str) -> &str {
     let bytes = s.as_bytes();
 
     for (i, &item) in bytes.iter().enumerate() {
