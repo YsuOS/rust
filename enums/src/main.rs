@@ -93,6 +93,14 @@ fn main() {
     if let Some(3) = some_u8_value {
         println!("three");
     }
+    let mut count = 0;
+//    let coin = Coin::Quarter(UsState::Alabama);
+    let coin = Coin::Dime;
+    match coin {
+        Coin::Quarter(state) => println!("State quarter from {:?}", state),
+        _ => count += 1,
+    }
+    println!("{}", count)
 }
 
 
