@@ -1,19 +1,12 @@
 extern crate iron;
-extern crate router;
 #[macro_use] extern crate mime;
 
 use iron::prelude::*;
 use iron::status;
-use router::Router;
 
-fn main(){
-    let mut router = Router::new();
-
-    router.get("/", get_form, "root");
-    router.post("/gcd", post_form, "gcd");
-
+fn main() {
     println!("Serving on http://localhost:3000...");
-    Iron::new(router).http("localhost:3000").unwrap();
+    Iron::new(get_form).http("localhost:3000").unwrap();
 }
 
 fn get_form(_request: &mut Request) -> IronResult<Response> {
@@ -24,9 +17,9 @@ fn get_form(_request: &mut Request) -> IronResult<Response> {
     response.set_mut(r#"
         <title>GCD Calculator</title>
         <form action="/gcd" method="post">
-          <input type="text" name="n"/>
-          <input type="text" name="n"/>
-          <button type="submit">Compute GCD</button>
+            <input type="text" name="n"/>
+            <input type="text" name="n"/>
+            <button type="submit">Compute GCD</button>
         </form>
     "#);
 
