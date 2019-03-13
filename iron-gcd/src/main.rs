@@ -31,6 +31,7 @@ fn get_form(_request: &mut Request) -> IronResult<Response> {
         </form>
     "#);
 
+    println!("[debug] get_form response {:?}", response);
     Ok(response)
 }
 
