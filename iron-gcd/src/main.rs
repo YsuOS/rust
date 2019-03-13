@@ -88,7 +88,7 @@ fn post_gcd(request: &mut Request) -> IronResult<Response> {
     response.set_mut(
         format!("The greatest common divisor of the numbers {:?} is <b>{}</b>\n",
                 numbers, d));
-    println!("[debug] post_gcd Request {:?}", response);
+    println!("[debug] post_gcd response {:?}", response);
     Ok(response)
 }
 
