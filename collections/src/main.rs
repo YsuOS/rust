@@ -35,6 +35,7 @@ fn main() {
         *i += 50;
         println!("{}", i);
     }
+    println!("v[0]: {}", v[0]);
 
     let row = vec![
         SpreadsheetCell::Int(3),
