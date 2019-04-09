@@ -5,27 +5,22 @@ fn main() {
         .map(|x| x.parse().unwrap()).collect();
     //println!("{}", v[0]+1);
     let mut ans = 0;
-    for x in 1..v[0]+1 {
-        if (x < 10) {
-            if (x % 10 >= v[1] && x % 10 <= v[2]){
-//                println!("{}", x);
-                ans += x;
+    for mut x in 1..v[0]+1 {
+//            println!("{}", x);
+        let mut sum = 0;
+        let mut tmp = x;
+        loop {
+//            println!("tmp:{}", tmp);
+            sum += tmp % 10; 
+//            println!("sum:{}", sum);
+            if (tmp / 10 == 0) {
+                break;
             }
-        } else if (x < 100) {
-            if ((x % 10 + (x / 10) % 10) >= v[1] && (x % 10 + (x / 10) % 10) <= v[2]){
-//                println!("{}", x);
-                ans += x;
-            }
-        } else if (x < 1000) {
-            if ((x % 10 + (x / 10) % 10 + (x / 100) % 10) >= v[1] && (x % 10 + (x / 10) % 10 + (x /100) % 10) <= v[2]){
-//                println!("{}", x);
-                ans += x;
-            }
-        } else if (x < 10000) {
-            if ((x % 10 + (x / 10) % 10 + (x / 100) % 10 + (x / 1000) % 10) >= v[1] && (x % 10 + (x / 10) % 10 + (x /100) % 10 + (x / 1000) % 10) <= v[2]){
-//                println!("{}", x);
-                ans += x;
-            }
+            tmp = tmp / 10;
+        }
+        if (sum >= v[1] && sum <= v[2]){
+            ans += x;
+//            println!("ans:{}", ans);
         }
     }
     println!("{}", ans);
