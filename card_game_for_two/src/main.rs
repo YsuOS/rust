@@ -6,7 +6,7 @@ fn main() {
     std::io::stdin().read_line(&mut a).unwrap();
     let mut v: Vec<u32> = a.trim().split_whitespace()
         .map(|x| x.parse().unwrap()).collect();
-    v.sort();
+    v.sort_by(|a, b| b.cmp(a));
 
     let mut alice = 0;
     let mut bob = 0;
