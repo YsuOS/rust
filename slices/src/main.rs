@@ -1,13 +1,15 @@
 fn main() {
     let s = String::from("hello world");
 
-    let word = first_word(&s);
-
-    println!("{}", word);
-    //s.clear(); // Error! if we have an immutable reference to something, we cannnot also take a
-    //mutable reference.
-    let my_string_literal = "hello world";
-    println!("{}", first_word(my_string_literal));
+    let slice: &str = &s;
+    println!("{}", &slice[3..]);
+//    let word = first_word(&s);
+//
+//    println!("{}", word);
+//    //s.clear(); // Error! if we have an immutable reference to something, we cannnot also take a
+//    //mutable reference.
+//    let my_string_literal = "hello world";
+//    println!("{}", first_word(my_string_literal));
 }
 
 fn first_word(s: &str) -> &str {
